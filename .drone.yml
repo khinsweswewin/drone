@@ -1,19 +1,19 @@
+---
 kind: pipeline
 type: docker
 name: default
 
-workspace:
-  path: /drone/src
-
 steps:
 - name: backend
-  image: golang:latest
+  image: golang
   commands:
-  - go get
+  - go build
   - go test
 
 - name: frontend
-  image: node:latest
+  image: node
   commands:
   - npm install
-  - npm run tests
+  - npm run test
+
+...
